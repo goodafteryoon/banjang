@@ -1,6 +1,6 @@
 ## 실행 방법
 
-npm install && npm start
+npm install && npm run server && npm start
 
 - http://localhost:3000 으로 확인 가능합니다.
 
