@@ -6,6 +6,9 @@ import { ThemeProvider } from 'styled-components';
 import App from 'App';
 import { GlobalStyle } from 'styles/GlobalStyle';
 import theme from 'theme';
+import { QueryClientProvider, QueryClient } from 'react-query';
+
+const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,8 +16,10 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
+        <App />
+      </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
