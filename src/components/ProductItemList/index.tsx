@@ -1,6 +1,7 @@
+import styled from 'styled-components';
+
 import ProductItem from 'components/ProductItem';
 import { Item } from 'models/product';
-import styled from 'styled-components';
 
 interface ProductItemListProps {
   data: Item[];

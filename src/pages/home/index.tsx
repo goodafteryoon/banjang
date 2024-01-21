@@ -17,7 +17,7 @@ const Home = () => {
 export default Home;
 
 const Container = styled.div`
-  background-color: #000;
+  background-color: ${(props) => props.theme.color.black};
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ const Container = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.color.white};
   width: 172px;
   height: 88px;
   border-radius: 20px;
@@ -36,6 +36,6 @@ const Button = styled.button`
 
   &:hover {
     background-color: ${(props) => props.theme.color.accent};
-    color: #fff;
+    color: ${(props) => props.theme.color.white};
   }
 `;

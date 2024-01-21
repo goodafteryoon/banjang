@@ -10,8 +10,8 @@ interface ProductItemProps {
 
 const ProductItem = ({ item }: ProductItemProps) => {
   const { addItem, removeItem, items } = useOrderStore();
-  const itemQuantity = items[item.id]?.quantity ?? 0;
 
+  const itemQuantity = items[item.id]?.quantity ?? 0;
   const isEvented = item.event === 1;
   const isSelected = itemQuantity > 0;
 

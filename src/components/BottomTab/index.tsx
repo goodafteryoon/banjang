@@ -1,5 +1,6 @@
-import { useOrderStore } from 'store/orderStore';
 import styled from 'styled-components';
+
+import { useOrderStore } from 'store/orderStore';
 import { formatPrice } from 'utils/formatPrice';
 
 const BottomTab = () => {
