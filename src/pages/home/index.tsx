@@ -35,7 +35,7 @@ const Button = styled.button`
   transition: background-color 0.1s, color 0.1s;
 
   &:hover {
-    background-color: #f75a2f;
+    background-color: ${(props) => props.theme.color.accent};
     color: #fff;
   }
 `;
