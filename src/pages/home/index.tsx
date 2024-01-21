@@ -7,16 +7,16 @@ import { PATHS } from 'constants/paths';
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <Wrapper>
+    <Container>
       <LogoIcon />
       <Button onClick={() => navigate(PATHS.ORDER)}>주문하러 가기</Button>
-    </Wrapper>
+    </Container>
   );
 };
 
 export default Home;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   background-color: #000;
   height: 100vh;
   display: flex;
@@ -35,7 +35,7 @@ const Button = styled.button`
   transition: background-color 0.1s, color 0.1s;
 
   &:hover {
-    background-color: #f75a2f;
+    background-color: ${(props) => props.theme.color.accent};
     color: #fff;
   }
 `;
