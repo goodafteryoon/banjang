@@ -13,7 +13,9 @@ const fetchItems = async () => {
 };
 
 const Order = () => {
-  const { data, isLoading, isError } = useQuery('items', fetchItems);
+  const { data, isLoading, isError } = useQuery('items', fetchItems, {
+    retry: 2,
+  });
 
   return (
     <>
