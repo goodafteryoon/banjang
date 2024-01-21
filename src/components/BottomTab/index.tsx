@@ -1,11 +1,27 @@
-import { useOrderStore } from 'store/orderStore';
 import styled from 'styled-components';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { useOrderStore } from 'store/orderStore';
 import { formatPrice } from 'utils/formatPrice';
 
 const BottomTab = () => {
+  const [isOrdering, setIsOrdering] = useState(false);
   const totalQuantity = useOrderStore((state) => state.getTotalQuantity());
   const totalPrice = useOrderStore((state) => state.getTotalPrice());
+
+  const navigate = useNavigate();
   const isButtonEnabled = totalQuantity > 0;
+
+  const handleOrder = () => {
+    setIsOrdering(true);
+
+    // 주문 처리 (50% 확률로 성공 또는 실패)
+    setTimeout(() => {
+      const isSuccess = Math.random() < 0.5;
+      navigate(isSuccess ? '/complete' : '/error');
+    }, 2000);
+  };
 
   return (
     <Container>
@@ -13,7 +29,9 @@ const BottomTab = () => {
         <TotalText>총 수량 : {totalQuantity}개</TotalText>
         <TotalText>총 가격 : {formatPrice(totalPrice)}</TotalText>
       </TotalContainer>
-      <Button disabled={!isButtonEnabled}>주문하기</Button>
+      <Button disabled={!isButtonEnabled || isOrdering} onClick={handleOrder}>
+        {isOrdering ? '주문중...' : '주문하기'}
+      </Button>
     </Container>
   );
 };

@@ -4,6 +4,8 @@ import { PATHS } from 'constants/paths';
 import DefaultLayout from 'layout/DefaultLayout';
 import Home from 'pages/home';
 import Order from 'pages/order';
+import Complete from 'pages/complete';
+import Error from 'pages/error';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: PATHS.ORDER,
         element: <Order />,
+      },
+      {
+        path: PATHS.COMPLETE,
+        element: <Complete />,
+      },
+      {
+        path: PATHS.ERROR,
+        element: <Error />,
       },
     ],
   },

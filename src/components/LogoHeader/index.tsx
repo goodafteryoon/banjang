@@ -21,6 +21,5 @@ const Wrapper = styled.header`
   height: ${HEADER_HEIGHT};
   background-color: ${(props) => props.theme.color.black};
   padding: 12px;
-  /* box-shadow: 0px 4px 8px 0px rgba(193, 193, 193, 0.8); */
   box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
 `;

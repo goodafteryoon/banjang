@@ -10,8 +10,8 @@ interface ProductItemProps {
 
 const ProductItem = ({ item }: ProductItemProps) => {
   const { addItem, removeItem, items } = useOrderStore();
-  const itemQuantity = items[item.id]?.quantity ?? 0;
 
+  const itemQuantity = items[item.id]?.quantity ?? 0;
   const isEvented = item.event === 1;
   const isSelected = itemQuantity > 0;
 
@@ -24,7 +24,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
   };
 
   return (
-    <Container highlight={isSelected}>
+    <Container $isSelected={isSelected}>
       <Image />
       <InfoContainer>
         <NameBox>
@@ -46,7 +46,7 @@ const ProductItem = ({ item }: ProductItemProps) => {
 
 export default ProductItem;
 
-const Container = styled.li<{ highlight: boolean }>`
+const Container = styled.li<{ $isSelected: boolean }>`
   width: 100%;
   height: 80px;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -56,7 +56,7 @@ const Container = styled.li<{ highlight: boolean }>`
   font-size: 18px;
   color: ${(props) => props.theme.color.black};
   background-color: ${(props) =>
-    props.highlight ? props.theme.color.highlight : props.theme.color};
+    props.$isSelected ? props.theme.color.highlight : props.theme.color};
   border-radius: 15px;
   gap: 20px;
 `;
